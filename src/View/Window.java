@@ -5,26 +5,25 @@ import Controller.*;
 
 import java.awt.*;
 
-public class Window extends JFrame {
-   // JFrame mainwindow;
+public class Window  {
+   public JFrame mainwindow;
     JPanel panel;
     JMenuBar menuBar;
     JToolBar toolBar;
 
     public Window() {
-       setTitle("Лабораторная работа №2");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainwindow=new JFrame("Лабораторная работа №2");
+        mainwindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         panel=new JPanel();
         menuBar();
         toolBar();
-        //mainwindow.setContentPane(panel);
-         pack();
-        setVisible(true);
+        mainwindow.pack();
+        mainwindow.setVisible(true);
     }
 
     void menuBar() {
         menuBar=new JMenuBar();
-        setJMenuBar(menuBar);
+        mainwindow.setJMenuBar(menuBar);
 
         JMenu file=new JMenu("Файл");
         JMenuItem open=new JMenuItem("Открыть файл",new ImageIcon(".//.//res//open.png"));
@@ -54,7 +53,7 @@ public class Window extends JFrame {
     }
     void toolBar(){
          toolBar=new JToolBar(SwingConstants.VERTICAL);
-        getContentPane().add(toolBar, BorderLayout.WEST);
+        mainwindow.getContentPane().add(toolBar, BorderLayout.WEST);
 
         JButton open=new JButton(new ImageIcon(".//.//res//open.png"));
         open.setToolTipText("Открыть файл");

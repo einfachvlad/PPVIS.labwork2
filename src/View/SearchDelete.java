@@ -6,13 +6,13 @@ import java.util.Vector;
 
 import Controller.*;
 
-public class SearchDelete extends JDialog {
-    // JDialog dialog;
+public class SearchDelete {
+   public JDialog dialog;
 
     public SearchDelete(Window owner, String dialogName) {
-        super(owner, dialogName, true);
+        dialog=new JDialog(owner.mainwindow, dialogName, true);
         components();
-        pack();
+        dialog.pack();
     }
 
     private void components() {
@@ -30,7 +30,7 @@ public class SearchDelete extends JDialog {
 
         JButton ok = new JButton("OK");
         ok.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-        ok.addActionListener(new OkDialogAction(this));
+        ok.addActionListener(new OkDialogAction(dialog));
 
         mainBox.add(nameAndBirth);
         mainBox.add(Box.createVerticalStrut(12));
@@ -39,7 +39,7 @@ public class SearchDelete extends JDialog {
         mainBox.add(enteringAndGraduate);
         mainBox.add(Box.createHorizontalStrut(12));
         mainBox.add(ok);
-        setContentPane(mainBox);
+        dialog.setContentPane(mainBox);
     }
 
     private Box birthDate() {

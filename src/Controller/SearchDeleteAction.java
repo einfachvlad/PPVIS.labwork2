@@ -20,6 +20,6 @@ public class SearchDeleteAction implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if(dialog == null) // в первый раз
             dialog = new SearchDelete(window,name);
-        dialog.setVisible(true); // отобразить диалог
+        dialog.dialog.setVisible(true); // отобразить диалог
     }
 }
