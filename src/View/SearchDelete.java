@@ -2,15 +2,19 @@ package View;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import java.awt.*;
 import java.util.Vector;
 
 import Controller.*;
 
 public class SearchDelete {
    public JDialog dialog;
-
+   public String name;
+   public Window frame;
     public SearchDelete(Window owner, String dialogName) {
         dialog=new JDialog(owner.mainwindow, dialogName, true);
+        name=dialogName;
+        frame=owner;
         components();
         dialog.pack();
     }

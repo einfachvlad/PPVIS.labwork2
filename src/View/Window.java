@@ -41,9 +41,9 @@ public class Window  {
         JMenu array=new JMenu("Массив");
         JMenuItem input=new JMenuItem("Ввод в массив",new ImageIcon(".//.//res//input.png"));
         JMenuItem search=new JMenuItem("Поиск в массиве",new ImageIcon(".//.//res//search.png"));
-        search.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Поиск"),this,"Поиск"));
+        search.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Поиск")));
         JMenuItem delete=new JMenuItem("Удаление в массиве",new ImageIcon(".//.//res//delete.png"));
-        delete.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Удаление"),this,"Удаление"));
+        delete.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Удаление")));
 
         array.add(input);
         array.add(search);
@@ -63,10 +63,10 @@ public class Window  {
         input.setToolTipText("Ввод в массив");
         JButton search=new JButton(new ImageIcon(".//.//res//search.png"));
         search.setToolTipText("Поиск в массиве");
-        search.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Поиск"),this,"Поиск"));
+        search.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Поиск")));
         JButton delete=new JButton(new ImageIcon(".//.//res//delete.png"));
         delete.setToolTipText("Удаление в массиве");
-        delete.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Удаление"),this,"Удаление"));
+        delete.addActionListener(new SearchDeleteAction(new SearchDelete(this,"Удаление")));
 
         toolBar.add(open);
         toolBar.add(save);

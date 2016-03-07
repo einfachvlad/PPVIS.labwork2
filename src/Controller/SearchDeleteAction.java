@@ -10,16 +10,12 @@ import java.awt.event.ActionListener;
 
 public class SearchDeleteAction implements ActionListener {
     SearchDelete dialog;
-    String name;
-    Window window;
-    public SearchDeleteAction(SearchDelete dialog,Window window, String name){
+    public SearchDeleteAction(SearchDelete dialog){
         this.dialog=dialog;
-        this.name=name;
-        this.window=window;
     }
     public void actionPerformed(ActionEvent event) {
         if(dialog == null) // в первый раз
-            dialog = new SearchDelete(window,name);
+            dialog = new SearchDelete(dialog.frame,dialog.name);
         dialog.dialog.setVisible(true); // отобразить диалог
     }
 }
