@@ -27,6 +27,7 @@ public class Window  {
 
         JMenu file=new JMenu("Файл");
         JMenuItem open=new JMenuItem("Открыть файл",new ImageIcon(".//.//res//open.png"));
+        open.addActionListener(new OpenAction());
         JMenuItem save=new JMenuItem("Сохранить файл",new ImageIcon(".//.//res//save.png"));
         JMenuItem exit=new JMenuItem("Выход",new ImageIcon(".//.//res//exit.png"));
         exit.addActionListener(new ExitAction());
@@ -57,6 +58,7 @@ public class Window  {
 
         JButton open=new JButton(new ImageIcon(".//.//res//open.png"));
         open.setToolTipText("Открыть файл");
+        open.addActionListener(new OpenAction());
         JButton save=new JButton(new ImageIcon(".//.//res//save.png"));
         save.setToolTipText("Сохранить файл");
         JButton input=new JButton(new ImageIcon(".//.//res//input.png"));
