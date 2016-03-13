@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 import Controller.SAXparser;
+import Model.Students;
 import View.*;
 
 import java.io.IOException;
@@ -15,7 +16,8 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        Window mainwindow=new Window();
+        Students students=new Students();
+        Window mainwindow=new Window(students);
 
 
 
