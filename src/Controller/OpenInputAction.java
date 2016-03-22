@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Students;
+import View.Input;
 import View.SearchDelete;
 import View.Window;
 
@@ -12,20 +14,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class SearchDeleteAction implements ActionListener {
-    SearchDelete dialog;
+public class OpenInputAction implements ActionListener {
+    Input dialog;
     TableModel model;
-    JTable table=new JTable();
-    public SearchDeleteAction(SearchDelete dialog,TableModel model) {
+    Students students=new Students();
+    JTable table = new JTable();
+
+    public OpenInputAction(Input dialog, TableModel model, Students students) {
         this.dialog = dialog;
-        this.model=model;
+        this.model = model;
+        this.students=students;
     }
 
     public void actionPerformed(ActionEvent event) {
         if (dialog == null) // в первый раз
         {
             table.setModel(model);
-            dialog = new SearchDelete(dialog.frame, dialog.name, table);
+            dialog = new Input(dialog.frame, "Ввод", table, students);
         }
         dialog.dialog.setVisible(true); // отобразить диалог
 

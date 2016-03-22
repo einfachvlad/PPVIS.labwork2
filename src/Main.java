@@ -7,18 +7,15 @@ import View.*;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args)
-    {
-       try{
+    public static void main(String[] args) {
+        try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        Students students=new Students();
-        Window mainwindow=new Window(students);
-
+        Students students = new Students();
+        Window mainwindow = new Window(students);
 
 
     }

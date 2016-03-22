@@ -2,25 +2,56 @@ package View;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.util.Vector;
+import java.time.format.TextStyle;
+import java.util.*;
+import java.util.List;
+import java.time.*;
 
 import Controller.*;
 
 public class SearchDelete {
-   public JDialog dialog;
-   public String name;
-   public Window frame;
-    public SearchDelete(Window owner, String dialogName) {
-        dialog=new JDialog(owner.mainwindow, dialogName, true);
-        name=dialogName;
-        frame=owner;
+    public JDialog dialog;
+    public String name;
+    public Window frame;
+    public JPanel panel;
+    JTable table = new JTable();
+
+    public SearchDelete(Window owner, String dialogName, JTable table) {
+        dialog = new JDialog(owner.mainwindow, dialogName, true);
+        name = dialogName;
+        frame = owner;
+        this.table = table;
         components();
         dialog.pack();
     }
 
     private void components() {
-        Box mainBox = Box.createVerticalBox();
+        panel = new JPanel();
+        JPanel info = new JPanel();
+
+        info.setLayout(new GridLayout(3, 2, 6, 12));
+
+        JButton ok = new JButton("OK");
+        // ok.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        ok.addActionListener(new OkDialogAction(dialog));
+
+        info.add(name());
+        info.add(birthDate());
+        info.add(birthYear());
+        info.add(enteringYear());
+        info.add(graduateYear());
+
+        panel.add(info, BorderLayout.NORTH);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+        panel.add(scrollPane);
+
+        panel.add(ok, BorderLayout.SOUTH);
+
+        /*Box mainBox = Box.createVerticalBox();
         Box nameAndBirth = Box.createHorizontalBox();
         Box enteringAndGraduate = Box.createHorizontalBox();
 
@@ -42,38 +73,42 @@ public class SearchDelete {
         mainBox.add(Box.createVerticalStrut(12));
         mainBox.add(enteringAndGraduate);
         mainBox.add(Box.createHorizontalStrut(12));
+        mainBox.add(table());
+        mainBox.add(Box.createHorizontalStrut(12));
         mainBox.add(ok);
-        dialog.setContentPane(mainBox);
+        dialog.setContentPane(mainBox);*/
+        dialog.setContentPane(panel);
     }
 
     private Box birthDate() {
         Box birthDate = Box.createHorizontalBox();
         birthDate.setBorder(new TitledBorder("Дата рождения"));
 
-        Vector<Integer> days = new Vector<>();
+        List<Integer> days = new ArrayList<>();
         for (int day = 1; day < 32; day++)
             days.add(day);
-        JComboBox day = new JComboBox(days);
+        JComboBox day = new JComboBox(days.toArray());
 
-        Vector<String> months = new Vector<>();
-        months.add("Январь");
-        months.add("Февраль");
-        months.add("Март");
-        months.add("Апрель");
-        months.add("Май");
-        months.add("Июнь");
-        months.add("Июль");
-        months.add("Август");
-        months.add("Сентябрь");
-        months.add("Октябрь");
-        months.add("Ноябрь");
-        months.add("Декабрь");
-        JComboBox month = new JComboBox(months);
 
-        Vector<Integer> years = new Vector<>();
+        List<String> months = new ArrayList<>();
+        months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.MARCH.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.APRIL.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.MAY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.JUNE.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.JULY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.AUGUST.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.SEPTEMBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.OCTOBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.NOVEMBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.DECEMBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        JComboBox month = new JComboBox(months.toArray());
+
+        List<Integer> years = new ArrayList<>();
         for (int year = 1950; year < 2017; year++)
             years.add(year);
-        JComboBox year = new JComboBox(years);
+        JComboBox year = new JComboBox(years.toArray());
 
 
         birthDate.add(day);

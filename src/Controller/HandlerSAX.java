@@ -6,13 +6,14 @@ import Model.*;
 
 public class HandlerSAX {
     File file;
-Students students;
-    public HandlerSAX(File file,Students students) {
+    Students students;
+
+    public HandlerSAX(File file, Students students) {
         this.file = file;
-        this.students=students;
+        this.students = students;
     }
 
-    public void main() {//НАДО ДОБАВИТЬ В АРГУМЕНТЫ СТАРТЭЛЕМЕНТА ЧЕКЕР, ЧТОБЫ СДЕЛАТЬ ОТСЧЁТ ОТ НЕГО
+    public void main() {
 
         SAXparser parser = new SAXparser(file.getAbsolutePath());
         String line = parser.startElement("students");
@@ -43,28 +44,6 @@ Students students;
                     students.students.add(student);
                 }
             }
-        /*String checker="";
-        String lastchecker="";
-        SAXparser parser=new SAXparser (file.getAbsolutePath());
-        lastchecker=parser.startElement("students");
-        checker=parser.startElement("students");
-        if(checker!="")
-            while(checker!=parser.lastElement("students",parser.startElement("students")))
-            {
-                checker=parser.nextElement(lastchecker);
-                    while(checker!=parser.lastElement("student",parser.startElement("student")))
-                    { if(checker==parser.startElement("student"))
-                        checker=parser.startElement("name");
-                        else lastchecker=checker;
-                            student.addName(parser.characters(parser.startElement("name"),parser.startTag("name"),parser.lastTag("name")));
-                            System.out.println(student.getName());
-                            if(checker==parser.startElement("name"))
-                                   checker=parser.nextElement(student.getName());
-                             else checker=parser.nextElement(lastchecker);
-
-                    }
-                lastchecker=checker;
-            }*/
 
     }
 }

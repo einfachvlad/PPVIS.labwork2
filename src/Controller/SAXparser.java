@@ -89,8 +89,8 @@ public class SAXparser {
     public String nextElement(String name) {
 
         int index = 0;
-        while(lines.get(index)!=name)
-             lines.remove(index);
+        while (lines.get(index) != name)
+            lines.remove(index);
         return lines.get(++index);
     }
 }

@@ -2,16 +2,18 @@ package Model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Date;
 import java.util.Locale;
 
 public class Student {
-    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
     String name;
-    Date birthDate;
+    LocalDate birthDate = LocalDate.of(1970, 01, 01);
     int enteringYear;
     int graduateYear;
-
+    public static final int numberOfField = 4;
 
     public String addName(String name) {
 
@@ -20,12 +22,10 @@ public class Student {
     }
 
     public void addBirthDate(String string) {
-        try {
-            birthDate = format.parse(string);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        birthDate = LocalDate.parse(string, formatter);
     }
+
 
     public int addenteringYear(int enteringYear) {
 
@@ -52,9 +52,14 @@ public class Student {
     }
 
     public String getBirthDate() {
-        Locale local = new Locale("ru", "RU");
-        DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, local);
-        return df.format(birthDate);
+        String date = null;
+        if (!birthDate.isEqual(LocalDate.of(1970, 01, 01)))
+            date =
+                    DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)
+                            .withLocale(new Locale("ru"))
+                            .format(birthDate);
+        return date;
     }
+
 
 }
