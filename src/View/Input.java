@@ -21,12 +21,14 @@ public class Input {
     public JComboBox day;
     public JComboBox month;
     public JComboBox year;
+    JTable mainTable;
     Students students=new Students();
     public List<String> months;
 
-    public Input(JFrame owner, String dialogName, JTable table, Students students) {
+    public Input(JFrame owner, String dialogName, JTable table, Students students,JTable mainTable) {
         dialog = new JDialog(owner, dialogName, true);
         this.students=students;
+        this.mainTable=mainTable;
         this.table = table;
         components();
         dialog.pack();
@@ -59,7 +61,7 @@ public class Input {
         JButton ok = new JButton("OK");
         ok.addActionListener(new OkDialogAction(dialog));
         JButton input = new JButton("Ввести");
-        input.addActionListener(new InputAction(this, students,table));
+        input.addActionListener(new InputAction(this, students,table,mainTable));
 
         buttons.add(ok);
         buttons.add(Box.createHorizontalStrut(3));

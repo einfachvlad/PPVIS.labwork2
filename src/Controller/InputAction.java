@@ -17,11 +17,13 @@ public class InputAction implements ActionListener {
     Students students = new Students();
     JTable table=new JTable();
     StudentsModel model;
+    JTable mainTable=new JTable();
 
-    public InputAction(Input input, Students students,JTable table) {
+    public InputAction(Input input, Students students,JTable table,JTable mainTable) {
         this.input = input;
         this.students = students;
         this.table=table;
+        this.mainTable=mainTable;
     }
 
     public void actionPerformed(ActionEvent event) {
@@ -44,5 +46,6 @@ public class InputAction implements ActionListener {
         students.students.add(student);
         model=new StudentsModel(students);
         table.setModel(model.getModel());
+        mainTable.setModel(model.getModel());
     }
 }

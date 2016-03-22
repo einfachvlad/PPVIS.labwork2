@@ -21,17 +21,19 @@ public class OpenInputAction implements ActionListener {
     StudentsModel studentsModel;
     Students students;
     JTable table = new JTable();
+    JTable mainTable;
 
-    public OpenInputAction( Students students) {
+    public OpenInputAction( Students students,JTable mainTable) {
         //this.dialog = dialog;
       //  this.model = model;
         this.students=students;
+        this.mainTable=mainTable;
     }
 
     public void actionPerformed(ActionEvent event) {
         if (dialog == null) // в первый раз
         {
-            dialog = new Input(null, "Ввод", table, students);
+            dialog = new Input(null, "Ввод", table, students,mainTable);
         }
         studentsModel = new StudentsModel(students);
         model = studentsModel.getModel();

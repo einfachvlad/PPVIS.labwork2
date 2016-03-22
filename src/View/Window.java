@@ -56,7 +56,7 @@ public class Window {
 
         JMenu array = new JMenu("Массив");
         JMenuItem input = new JMenuItem("Ввод в массив", new ImageIcon(".//.//res//input.png"));
-        input.addActionListener(new OpenInputAction(students));
+        input.addActionListener(new OpenInputAction(students,table));
         JMenuItem search = new JMenuItem("Поиск в массиве", new ImageIcon(".//.//res//search.png"));
         search.addActionListener(new SearchDeleteAction("Поиск",students));
         JMenuItem delete = new JMenuItem("Удаление в массиве", new ImageIcon(".//.//res//delete.png"));
@@ -80,7 +80,7 @@ public class Window {
         save.setToolTipText("Сохранить файл");
         JButton input = new JButton(new ImageIcon(".//.//res//input.png"));
         input.setToolTipText("Ввод в массив");
-        input.addActionListener(new OpenInputAction(students));
+        input.addActionListener(new OpenInputAction(students,table));
         JButton search = new JButton(new ImageIcon(".//.//res//search.png"));
         search.setToolTipText("Поиск в массиве");
         search.addActionListener(new SearchDeleteAction("Поиск",students));
