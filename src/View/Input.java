@@ -13,9 +13,8 @@ import Model.Students;
 
 public class Input {
     public JDialog dialog;
-    public Window frame;
     public JPanel panel;
-    JTable table = new JTable();
+     public JTable table = new JTable();
     public JTextField nameOfStudent;
     public JComboBox enteringYear;
     public JComboBox graduateYear;
@@ -23,10 +22,10 @@ public class Input {
     public JComboBox month;
     public JComboBox year;
     Students students=new Students();
+    public List<String> months;
 
-    public Input(Window owner, String dialogName, JTable table, Students students) {
-        dialog = new JDialog(owner.mainwindow, dialogName, true);
-        frame = owner;
+    public Input(JFrame owner, String dialogName, JTable table, Students students) {
+        dialog = new JDialog(owner, dialogName, true);
         this.students=students;
         this.table = table;
         components();
@@ -60,7 +59,7 @@ public class Input {
         JButton ok = new JButton("OK");
         ok.addActionListener(new OkDialogAction(dialog));
         JButton input = new JButton("Ввести");
-        input.addActionListener(new InputAction(this, students));
+        input.addActionListener(new InputAction(this, students,table));
 
         buttons.add(ok);
         buttons.add(Box.createHorizontalStrut(3));
@@ -78,8 +77,8 @@ public class Input {
         day = new JComboBox(days.toArray());
 
 
-        List<String> months = new ArrayList<>();
-        months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months = new ArrayList<>();
+        months.add(Month.JANUARY.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
         months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
         months.add(Month.MARCH.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
         months.add(Month.APRIL.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
@@ -136,10 +135,10 @@ public class Input {
         graduateYearBox.setBorder(new TitledBorder("Год окончания"));
 
         List<Integer> years = new ArrayList<>();
-        for (int year = 1950; year < 2017; year++)
+        for (int year = 1950; year < 2020; year++)
             years.add(year);
 
-        JComboBox graduateYear = new JComboBox(years.toArray());
+         graduateYear = new JComboBox(years.toArray());
 
         graduateYearBox.add(graduateYear);
 

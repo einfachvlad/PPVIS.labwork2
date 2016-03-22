@@ -53,8 +53,6 @@ public class DOM {
         for (Node child = start.getFirstChild();
              child != null;
              child = child.getNextSibling()) {
-            /*if (child.getNodeName() == "student"||
-                    (start.getNodeName()=="students"&&child.getNodeName()=="\n"))*/
             if(student.getName()!=null&&student.getBirthDate()!=null&&student.getEnteringYear()!=0&&student.getGraduateYear()!=0){
                 { students.students.add(student);
                 student = new Student();}

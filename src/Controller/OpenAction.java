@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Students;
 import View.StudentsModel;
-import View.Table;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -43,7 +42,7 @@ public class OpenAction implements ActionListener {
             studentsModel = new StudentsModel(students);
             model = studentsModel.getModel();
             table.setModel(model);
-            table.validate();
+
         }
     }
 }

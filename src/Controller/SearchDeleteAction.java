@@ -1,6 +1,8 @@
 package Controller;
 
+import Model.Students;
 import View.SearchDelete;
+import View.StudentsModel;
 import View.Window;
 
 import javax.swing.*;
@@ -13,20 +15,28 @@ import java.awt.event.ActionListener;
 
 
 public class SearchDeleteAction implements ActionListener {
-    SearchDelete dialog;
-    TableModel model;
+    SearchDelete dialog=null;
+    DefaultTableModel model=new DefaultTableModel();
+    StudentsModel studentsModel;
+    Students students;
+    String name;
     JTable table=new JTable();
-    public SearchDeleteAction(SearchDelete dialog,TableModel model) {
-        this.dialog = dialog;
-        this.model=model;
+
+    public SearchDeleteAction(String name, Students students) {
+      // this.dialog = dialog;
+        this.name=name;
+        this.students = students;
+       // this.model = model;
     }
 
     public void actionPerformed(ActionEvent event) {
         if (dialog == null) // в первый раз
         {
-            table.setModel(model);
-            dialog = new SearchDelete(dialog.frame, dialog.name, table);
+            dialog = new SearchDelete(null, name, table);
         }
+        studentsModel = new StudentsModel(students);
+        model = studentsModel.getModel();
+        table.setModel(model);
         dialog.dialog.setVisible(true); // отобразить диалог
 
         /*JTable table = new JTable(model);

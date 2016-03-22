@@ -3,6 +3,7 @@ package Controller;
 import Model.Students;
 import View.Input;
 import View.SearchDelete;
+import View.StudentsModel;
 import View.Window;
 
 import javax.swing.*;
@@ -15,23 +16,26 @@ import java.awt.event.ActionListener;
 
 
 public class OpenInputAction implements ActionListener {
-    Input dialog;
-    TableModel model;
-    Students students=new Students();
+    Input dialog=null;
+    DefaultTableModel model=new DefaultTableModel();
+    StudentsModel studentsModel;
+    Students students;
     JTable table = new JTable();
 
-    public OpenInputAction(Input dialog, TableModel model, Students students) {
-        this.dialog = dialog;
-        this.model = model;
+    public OpenInputAction( Students students) {
+        //this.dialog = dialog;
+      //  this.model = model;
         this.students=students;
     }
 
     public void actionPerformed(ActionEvent event) {
         if (dialog == null) // в первый раз
         {
-            table.setModel(model);
-            dialog = new Input(dialog.frame, "Ввод", table, students);
+            dialog = new Input(null, "Ввод", table, students);
         }
+        studentsModel = new StudentsModel(students);
+        model = studentsModel.getModel();
+        table.setModel(model);
         dialog.dialog.setVisible(true); // отобразить диалог
 
         /*JTable table = new JTable(model);

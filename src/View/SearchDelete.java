@@ -15,14 +15,12 @@ import Controller.*;
 public class SearchDelete {
     public JDialog dialog;
     public String name;
-    public Window frame;
     public JPanel panel;
-    JTable table = new JTable();
+    JTable table;// = new JTable();
 
-    public SearchDelete(Window owner, String dialogName, JTable table) {
-        dialog = new JDialog(owner.mainwindow, dialogName, true);
+    public SearchDelete(JFrame owner, String dialogName, JTable table) {
+        dialog = new JDialog(owner, dialogName, true);
         name = dialogName;
-        frame = owner;
         this.table = table;
         components();
         dialog.pack();
@@ -91,18 +89,18 @@ public class SearchDelete {
 
 
         List<String> months = new ArrayList<>();
-        months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.MARCH.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.APRIL.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.MAY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.JUNE.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.JULY.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.AUGUST.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.SEPTEMBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.OCTOBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.NOVEMBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
-        months.add(Month.DECEMBER.getDisplayName(TextStyle.FULL_STANDALONE , new Locale("ru")));
+        months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.FEBRUARY.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.MARCH.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.APRIL.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.MAY.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.JUNE.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.JULY.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.AUGUST.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.SEPTEMBER.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.OCTOBER.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.NOVEMBER.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
+        months.add(Month.DECEMBER.getDisplayName(TextStyle.FULL_STANDALONE, new Locale("ru")));
         JComboBox month = new JComboBox(months.toArray());
 
         List<Integer> years = new ArrayList<>();
@@ -131,14 +129,14 @@ public class SearchDelete {
         Box birthYear = Box.createHorizontalBox();
         birthYear.setBorder(new TitledBorder("Год Рождения"));
 
-        Vector<Integer> years = new Vector<>();
+        List<Integer> years = new ArrayList<>();
         for (int year = 1950; year < 2017; year++)
             years.add(year);
 
         JLabel from = new JLabel("От");
         JLabel till = new JLabel("До");
-        JComboBox fromYear = new JComboBox(years);
-        JComboBox tillYear = new JComboBox(years);
+        JComboBox fromYear = new JComboBox(years.toArray());
+        JComboBox tillYear = new JComboBox(years.toArray());
 
         birthYear.add(from);
         birthYear.add(Box.createHorizontalStrut(3));
@@ -154,14 +152,15 @@ public class SearchDelete {
         Box enteringYear = Box.createHorizontalBox();
         enteringYear.setBorder(new TitledBorder("Год поступления"));
 
-        Vector<Integer> years = new Vector<>();
+
+        List<Integer> years = new ArrayList<>();
         for (int year = 1950; year < 2017; year++)
             years.add(year);
 
         JLabel from = new JLabel("От");
         JLabel till = new JLabel("До");
-        JComboBox fromYear = new JComboBox(years);
-        JComboBox tillYear = new JComboBox(years);
+        JComboBox fromYear = new JComboBox(years.toArray());
+        JComboBox tillYear = new JComboBox(years.toArray());
 
         enteringYear.add(from);
         enteringYear.add(Box.createHorizontalStrut(3));
@@ -177,14 +176,15 @@ public class SearchDelete {
         Box graduateYear = Box.createHorizontalBox();
         graduateYear.setBorder(new TitledBorder("Год окончания"));
 
-        Vector<Integer> years = new Vector<>();
+
+        List<Integer> years = new ArrayList<>();
         for (int year = 1950; year < 2017; year++)
             years.add(year);
 
         JLabel from = new JLabel("От");
         JLabel till = new JLabel("До");
-        JComboBox fromYear = new JComboBox(years);
-        JComboBox tillYear = new JComboBox(years);
+        JComboBox fromYear = new JComboBox(years.toArray());
+        JComboBox tillYear = new JComboBox(years.toArray());
 
         graduateYear.add(from);
         graduateYear.add(Box.createHorizontalStrut(3));

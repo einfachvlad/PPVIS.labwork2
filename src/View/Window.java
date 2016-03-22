@@ -56,11 +56,11 @@ public class Window {
 
         JMenu array = new JMenu("Массив");
         JMenuItem input = new JMenuItem("Ввод в массив", new ImageIcon(".//.//res//input.png"));
-      //  input.addActionListener(new OpenInputAction(new Input(this, "Ввод",new JTable(),students),model,students));
+        input.addActionListener(new OpenInputAction(students));
         JMenuItem search = new JMenuItem("Поиск в массиве", new ImageIcon(".//.//res//search.png"));
-        search.addActionListener(new SearchDeleteAction(new SearchDelete(this, "Поиск",new JTable()),model));
+        search.addActionListener(new SearchDeleteAction("Поиск",students));
         JMenuItem delete = new JMenuItem("Удаление в массиве", new ImageIcon(".//.//res//delete.png"));
-        delete.addActionListener(new SearchDeleteAction(new SearchDelete(this, "Удаление",new JTable()),model));
+        delete.addActionListener(new SearchDeleteAction("Удаление",students));
 
         array.add(input);
         array.add(search);
@@ -80,13 +80,13 @@ public class Window {
         save.setToolTipText("Сохранить файл");
         JButton input = new JButton(new ImageIcon(".//.//res//input.png"));
         input.setToolTipText("Ввод в массив");
-        //input.addActionListener(new OpenInputAction(new Input(this, "Ввод",new JTable(),students),model,students));
+        input.addActionListener(new OpenInputAction(students));
         JButton search = new JButton(new ImageIcon(".//.//res//search.png"));
         search.setToolTipText("Поиск в массиве");
-        search.addActionListener(new SearchDeleteAction(new SearchDelete(this, "Поиск",new JTable()),model));
+        search.addActionListener(new SearchDeleteAction("Поиск",students));
         JButton delete = new JButton(new ImageIcon(".//.//res//delete.png"));
         delete.setToolTipText("Удаление в массиве");
-        delete.addActionListener(new SearchDeleteAction(new SearchDelete(this, "Удаление",new JTable()),model));
+        delete.addActionListener(new SearchDeleteAction("Удаление",students));
 
         toolBar.add(open);
         toolBar.add(save);
