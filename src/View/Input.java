@@ -3,6 +3,7 @@ package View;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.io.File;
 import java.time.format.TextStyle;
 import java.util.*;
 import java.util.List;
@@ -14,7 +15,6 @@ import Model.Students;
 public class Input {
     public JDialog dialog;
     public JPanel panel;
-     public JTable table = new JTable();
     public JTextField nameOfStudent;
     public JComboBox enteringYear;
     public JComboBox graduateYear;
@@ -25,11 +25,10 @@ public class Input {
     Students students=new Students();
     public List<String> months;
 
-    public Input(JFrame owner, String dialogName, JTable table, Students students,JTable mainTable) {
+    public Input(JFrame owner, String dialogName,Students students,JTable mainTable) {
         dialog = new JDialog(owner, dialogName, true);
         this.students=students;
         this.mainTable=mainTable;
-        this.table = table;
         components();
         dialog.pack();
     }
@@ -47,9 +46,6 @@ public class Input {
 
         panel.add(info, BorderLayout.NORTH);
 
-        JScrollPane scrollPane = new JScrollPane(table);
-        panel.add(scrollPane);
-
         panel.add(buttons(), BorderLayout.SOUTH);
 
         dialog.setContentPane(panel);
@@ -61,7 +57,7 @@ public class Input {
         JButton ok = new JButton("OK");
         ok.addActionListener(new OkDialogAction(dialog));
         JButton input = new JButton("Ввести");
-        input.addActionListener(new InputAction(this, students,table,mainTable));
+        input.addActionListener(new InputAction(this, students,mainTable));
 
         buttons.add(ok);
         buttons.add(Box.createHorizontalStrut(3));

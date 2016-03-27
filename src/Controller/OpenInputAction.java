@@ -13,19 +13,15 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 
 public class OpenInputAction implements ActionListener {
     Input dialog=null;
-    DefaultTableModel model=new DefaultTableModel();
-    StudentsModel studentsModel;
     Students students;
-    JTable table = new JTable();
     JTable mainTable;
 
     public OpenInputAction( Students students,JTable mainTable) {
-        //this.dialog = dialog;
-      //  this.model = model;
         this.students=students;
         this.mainTable=mainTable;
     }
@@ -33,11 +29,8 @@ public class OpenInputAction implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if (dialog == null) // в первый раз
         {
-            dialog = new Input(null, "Ввод", table, students,mainTable);
+            dialog = new Input(null, "Ввод", students,mainTable);
         }
-        studentsModel = new StudentsModel(students);
-        model = studentsModel.getModel();
-        table.setModel(model);
         dialog.dialog.setVisible(true); // отобразить диалог
 
         /*JTable table = new JTable(model);

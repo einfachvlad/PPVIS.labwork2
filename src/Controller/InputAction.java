@@ -8,6 +8,7 @@ import View.StudentsModel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,15 +16,14 @@ import java.util.List;
 public class InputAction implements ActionListener {
     Input input;
     Students students = new Students();
-    JTable table=new JTable();
+    JTable table = new JTable();
     StudentsModel model;
-    JTable mainTable=new JTable();
+    JTable mainTable = new JTable();
 
-    public InputAction(Input input, Students students,JTable table,JTable mainTable) {
+    public InputAction(Input input, Students students, JTable mainTable) {
         this.input = input;
         this.students = students;
-        this.table=table;
-        this.mainTable=mainTable;
+        this.mainTable = mainTable;
     }
 
     public void actionPerformed(ActionEvent event) {
@@ -39,13 +39,21 @@ public class InputAction implements ActionListener {
                 break;
             }
         }
+        String day;
+        if ((int)input.day.getSelectedItem() < 10)
+            day = "0" + input.day.getSelectedItem().toString();
+        else day = input.day.getSelectedItem().toString();
 
-        student.addBirthDate("0"+input.day.getSelectedItem().toString() + "."
-                + "0" + Integer.toString(numberOfMonth) + "."
+        String month;
+        if (numberOfMonth < 10)
+            month = "0" + Integer.toString(numberOfMonth);
+        else month = Integer.toString(numberOfMonth);
+
+        student.addBirthDate(day + "."
+                + month+ "."
                 + input.year.getSelectedItem().toString());
         students.students.add(student);
-        model=new StudentsModel(students);
-        table.setModel(model.getModel());
+        model = new StudentsModel(students);
         mainTable.setModel(model.getModel());
     }
 }

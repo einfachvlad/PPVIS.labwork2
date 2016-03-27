@@ -28,7 +28,7 @@ public class OpenAction implements ActionListener {
         fileChooser = new JFileChooser(".//.//");
         int openFile = fileChooser.showDialog(null, "Открыть файл");
         if (openFile == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
+          File  file = fileChooser.getSelectedFile();
 
             int whichParser = random.nextInt(2) + 1;
             if (whichParser == 1) {

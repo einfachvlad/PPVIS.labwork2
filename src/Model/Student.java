@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Student {
+    public static final String FULL ="FULL";
+    public static final String MEDIUM ="MEDIUM";
+
     String name;
     LocalDate birthDate = LocalDate.of(1970, 01, 01);
     int enteringYear;
@@ -51,13 +54,20 @@ public class Student {
         return graduateYear;
     }
 
-    public String getBirthDate() {
+    public String getBirthDate(String type) {
         String date = null;
         if (!birthDate.isEqual(LocalDate.of(1970, 01, 01)))
-            date =
+            if(type==FULL)
+            { date =
                     DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)
                             .withLocale(new Locale("ru"))
-                            .format(birthDate);
+                            .format(birthDate);}
+        else {
+                date =
+                        DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+                                .withLocale(new Locale("ru"))
+                                .format(birthDate);
+            }
         return date;
     }
 

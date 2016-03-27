@@ -31,7 +31,7 @@ public class HandlerSAX {
                             System.out.println(student.getName());
                         } else if (line == parser.startElement("birthDate") && line != parser.notFound) {
                             student.addBirthDate(parser.characters(parser.startTag("birthDate"), parser.lastTag("birthDate")));
-                            System.out.println(student.getBirthDate());
+                            System.out.println(student.getBirthDate(student.FULL));
                         } else if (line == parser.startElement("enteringYear") && line != parser.notFound) {
                             student.addenteringYear(Integer.valueOf(parser.characters(parser.startTag("enteringYear"), parser.lastTag("enteringYear"))));
                             System.out.println(student.getEnteringYear());

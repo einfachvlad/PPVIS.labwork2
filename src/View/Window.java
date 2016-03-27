@@ -8,6 +8,7 @@ import Controller.*;
 import Model.Students;
 
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
 public class Window {
@@ -18,9 +19,6 @@ public class Window {
     Students students;
     JTable table=new JTable();
     DefaultTableModel model=new DefaultTableModel();
-
-
-    //DefaultTableModel model;
 
     public Window(Students students) {
         this.students = students;
@@ -44,6 +42,7 @@ public class Window {
         JMenuItem open = new JMenuItem("Открыть файл", new ImageIcon(".//.//res//open.png"));
         open.addActionListener(new OpenAction(students,table,model));
         JMenuItem save = new JMenuItem("Сохранить файл", new ImageIcon(".//.//res//save.png"));
+        save.addActionListener(new SaveAction(students));
         JMenuItem exit = new JMenuItem("Выход", new ImageIcon(".//.//res//exit.png"));
         exit.addActionListener(new ExitAction());
 
@@ -78,6 +77,7 @@ public class Window {
         open.addActionListener(new OpenAction(students,table,model));
         JButton save = new JButton(new ImageIcon(".//.//res//save.png"));
         save.setToolTipText("Сохранить файл");
+        save.addActionListener(new SaveAction(students));
         JButton input = new JButton(new ImageIcon(".//.//res//input.png"));
         input.setToolTipText("Ввод в массив");
         input.addActionListener(new OpenInputAction(students,table));

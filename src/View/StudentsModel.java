@@ -25,7 +25,7 @@ public class StudentsModel {
         for (Student student : students.students) {
            model.setValueAt(students.students.indexOf(student) + 1, students.students.indexOf(student), 0);
             model.setValueAt(student.getName(), students.students.indexOf(student), 1);
-            model.setValueAt(student.getBirthDate(), students.students.indexOf(student), 2);
+            model.setValueAt(student.getBirthDate(student.FULL), students.students.indexOf(student), 2);
             model.setValueAt(student.getEnteringYear(), students.students.indexOf(student), 3);
             model.setValueAt(student.getGraduateYear(), students.students.indexOf(student), 4);
             /*data.add(students.students.indexOf(student) + 1);
