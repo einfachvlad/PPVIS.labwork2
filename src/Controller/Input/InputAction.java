@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Input;
 
 import Model.Student;
 import Model.Students;

@@ -54,6 +54,14 @@ public class Student {
         return graduateYear;
     }
 
+    public int getBirthYear() {
+        int date = 0;
+        if (!birthDate.isEqual(LocalDate.of(1970, 01, 01)))
+            date=birthDate.getYear();
+        return date;
+
+    }
+
     public String getBirthDate(String type) {
         String date = null;
         if (!birthDate.isEqual(LocalDate.of(1970, 01, 01)))

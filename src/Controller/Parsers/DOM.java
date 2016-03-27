@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Parsers;
 
 import Model.Student;
 import Model.Students;

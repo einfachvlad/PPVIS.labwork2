@@ -1,17 +1,14 @@
 package View;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 import Controller.*;
-import Controller.SearchDeleteAction;
+import Controller.Input.OpenInputAction;
+import Controller.Search.OpenSearchAction;
 import Controller.TableButtons.*;
-import Model.Student;
 import Model.Students;
 
 import java.awt.*;
-import java.util.*;
-import java.util.List;
 
 public class Window {
     public JFrame mainwindow;
@@ -58,9 +55,9 @@ public class Window {
         JMenuItem input = new JMenuItem("Ввод в массив", new ImageIcon(".//.//res//input.png"));
         input.addActionListener(new OpenInputAction(students, table));
         JMenuItem search = new JMenuItem("Поиск в массиве", new ImageIcon(".//.//res//search.png"));
-        search.addActionListener(new SearchDeleteAction("Поиск", students));
+        search.addActionListener(new OpenSearchAction(students));
         JMenuItem delete = new JMenuItem("Удаление в массиве", new ImageIcon(".//.//res//delete.png"));
-        delete.addActionListener(new SearchDeleteAction("Удаление", students));
+        delete.addActionListener(new OpenSearchAction(students));
 
         array.add(input);
         array.add(search);
@@ -84,10 +81,10 @@ public class Window {
         input.addActionListener(new OpenInputAction(students, table));
         JButton search = new JButton(new ImageIcon(".//.//res//search.png"));
         search.setToolTipText("Поиск в массиве");
-        search.addActionListener(new SearchDeleteAction("Поиск", students));
+        search.addActionListener(new OpenSearchAction(students));
         JButton delete = new JButton(new ImageIcon(".//.//res//delete.png"));
         delete.setToolTipText("Удаление в массиве");
-        delete.addActionListener(new SearchDeleteAction("Удаление", students));
+        delete.addActionListener(new OpenSearchAction(students));
 
         toolBar.add(open);
         toolBar.add(save);

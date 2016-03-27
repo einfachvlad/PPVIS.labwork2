@@ -1,16 +1,15 @@
 package Controller;
 
+import Controller.Parsers.DOM;
+import Controller.Parsers.HandlerSAX;
 import Model.Student;
 import Model.Students;
 import View.StudentsModel;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

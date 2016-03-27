@@ -1,11 +1,9 @@
 package Controller;
 
+import Controller.Parsers.DOM;
 import Model.Students;
-import org.w3c.dom.Document;
 
 import javax.swing.*;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;

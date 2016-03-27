@@ -1,7 +1,7 @@
-package Controller;
+package Controller.Search;
 
 import Model.Students;
-import View.Input;
+import View.Search;
 import View.SearchDelete;
 import View.StudentsModel;
 import View.Window;
@@ -13,29 +13,23 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 
-public class OpenInputAction implements ActionListener {
-    Input dialog=null;
+public class OpenSearchAction implements ActionListener {
+    Search dialog=null;
     Students students;
-    JTable mainTable;
 
-    public OpenInputAction( Students students,JTable mainTable) {
-        this.students=students;
-        this.mainTable=mainTable;
+    public OpenSearchAction(Students students) {
+        this.students = students;
     }
 
     public void actionPerformed(ActionEvent event) {
         if (dialog == null) // в первый раз
         {
-            dialog = new Input(null, "Ввод", students,mainTable);
+            dialog = new Search(null,students);
         }
         dialog.dialog.setVisible(true); // отобразить диалог
 
-        /*JTable table = new JTable(model);
-        JTableHeader header = table.getTableHeader();
-        JScrollPane scrollPane = new JScrollPane(table);
-        panel.add(scrollPane);*/
+
     }
 }
