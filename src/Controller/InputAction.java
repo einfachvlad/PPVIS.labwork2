@@ -16,8 +16,7 @@ import java.util.List;
 public class InputAction implements ActionListener {
     Input input;
     Students students = new Students();
-    JTable table = new JTable();
-    StudentsModel model;
+    StudentsModel model = new StudentsModel(students);
     JTable mainTable = new JTable();
 
     public InputAction(Input input, Students students, JTable mainTable) {
@@ -40,7 +39,7 @@ public class InputAction implements ActionListener {
             }
         }
         String day;
-        if ((int)input.day.getSelectedItem() < 10)
+        if ((int) input.day.getSelectedItem() < 10)
             day = "0" + input.day.getSelectedItem().toString();
         else day = input.day.getSelectedItem().toString();
 
@@ -50,10 +49,20 @@ public class InputAction implements ActionListener {
         else month = Integer.toString(numberOfMonth);
 
         student.addBirthDate(day + "."
-                + month+ "."
+                + month + "."
                 + input.year.getSelectedItem().toString());
         students.students.add(student);
-        model = new StudentsModel(students);
-        mainTable.setModel(model.getModel());
+
+        if (students.selectedPage == students.numberOfPages) {
+            List<Student> studentsList = students.students.subList((students.selectedPage - 1) * students.visibleCount, students.students.size());
+            Students newStudents = new Students(studentsList);
+            if (studentsList.size() < students.visibleCount + 1) {
+                model = new StudentsModel(newStudents);
+                mainTable.setModel(model.getModel());
+            }
+            else students.numberOfPages++;
+        }
+        JOptionPane.showMessageDialog
+                (null, "Студент добавлен", "Успех", JOptionPane.INFORMATION_MESSAGE);
     }
 }

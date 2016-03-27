@@ -2,14 +2,16 @@ package View;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 import Controller.*;
+import Controller.SearchDeleteAction;
+import Controller.TableButtons.*;
+import Model.Student;
 import Model.Students;
 
 import java.awt.*;
-import java.io.File;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
 
 public class Window {
     public JFrame mainwindow;
@@ -17,8 +19,7 @@ public class Window {
     JMenuBar menuBar;
     JToolBar toolBar;
     Students students;
-    JTable table=new JTable();
-    DefaultTableModel model=new DefaultTableModel();
+    JTable table = new JTable();
 
     public Window(Students students) {
         this.students = students;
@@ -40,7 +41,7 @@ public class Window {
 
         JMenu file = new JMenu("Файл");
         JMenuItem open = new JMenuItem("Открыть файл", new ImageIcon(".//.//res//open.png"));
-        open.addActionListener(new OpenAction(students,table,model));
+        open.addActionListener(new OpenAction(students, table));
         JMenuItem save = new JMenuItem("Сохранить файл", new ImageIcon(".//.//res//save.png"));
         save.addActionListener(new SaveAction(students));
         JMenuItem exit = new JMenuItem("Выход", new ImageIcon(".//.//res//exit.png"));
@@ -55,11 +56,11 @@ public class Window {
 
         JMenu array = new JMenu("Массив");
         JMenuItem input = new JMenuItem("Ввод в массив", new ImageIcon(".//.//res//input.png"));
-        input.addActionListener(new OpenInputAction(students,table));
+        input.addActionListener(new OpenInputAction(students, table));
         JMenuItem search = new JMenuItem("Поиск в массиве", new ImageIcon(".//.//res//search.png"));
-        search.addActionListener(new SearchDeleteAction("Поиск",students));
+        search.addActionListener(new SearchDeleteAction("Поиск", students));
         JMenuItem delete = new JMenuItem("Удаление в массиве", new ImageIcon(".//.//res//delete.png"));
-        delete.addActionListener(new SearchDeleteAction("Удаление",students));
+        delete.addActionListener(new SearchDeleteAction("Удаление", students));
 
         array.add(input);
         array.add(search);
@@ -74,19 +75,19 @@ public class Window {
 
         JButton open = new JButton(new ImageIcon(".//.//res//open.png"));
         open.setToolTipText("Открыть файл");
-        open.addActionListener(new OpenAction(students,table,model));
+        open.addActionListener(new OpenAction(students, table));
         JButton save = new JButton(new ImageIcon(".//.//res//save.png"));
         save.setToolTipText("Сохранить файл");
         save.addActionListener(new SaveAction(students));
         JButton input = new JButton(new ImageIcon(".//.//res//input.png"));
         input.setToolTipText("Ввод в массив");
-        input.addActionListener(new OpenInputAction(students,table));
+        input.addActionListener(new OpenInputAction(students, table));
         JButton search = new JButton(new ImageIcon(".//.//res//search.png"));
         search.setToolTipText("Поиск в массиве");
-        search.addActionListener(new SearchDeleteAction("Поиск",students));
+        search.addActionListener(new SearchDeleteAction("Поиск", students));
         JButton delete = new JButton(new ImageIcon(".//.//res//delete.png"));
         delete.setToolTipText("Удаление в массиве");
-        delete.addActionListener(new SearchDeleteAction("Удаление",students));
+        delete.addActionListener(new SearchDeleteAction("Удаление", students));
 
         toolBar.add(open);
         toolBar.add(save);
@@ -96,7 +97,54 @@ public class Window {
     }
 
     void table() {
+        Box tablePanel = Box.createVerticalBox();
         JScrollPane scrollPane = new JScrollPane(table);
-        panel.add(scrollPane);
+
+        Box visibleCount = Box.createHorizontalBox();
+
+        JButton no15 = new JButton("15");
+        no15.addActionListener(new VisibleCount(students, 15,table));
+
+        JButton no20 = new JButton("20");
+        no20.addActionListener(new VisibleCount(students, 20,table));
+
+        JButton no30 = new JButton("30");
+        no30.addActionListener(new VisibleCount(students, 30,table));
+
+        visibleCount.add(no15);
+        visibleCount.add(Box.createHorizontalStrut(3));
+        visibleCount.add(no20);
+        visibleCount.add(Box.createHorizontalStrut(3));
+        visibleCount.add(no30);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(1, 4, 3, 1));
+
+        JButton first = new JButton("<<");
+        first.addActionListener(new FirstPage(students, table));
+
+        JButton previous = new JButton("Previous");
+        previous.addActionListener(new PreviousPage(students, table));
+
+        JButton next = new JButton("Next");
+        next.addActionListener(new NextPage(students, table));
+
+        JButton last = new JButton(">>");
+        last.addActionListener(new LastPage(students, table));
+
+        buttonPanel.add(first);
+        buttonPanel.add(previous);
+        buttonPanel.add(next);
+        buttonPanel.add(last);
+
+        tablePanel.add(scrollPane);
+        tablePanel.add(Box.createVerticalStrut(12));
+        tablePanel.add(visibleCount);
+        tablePanel.add(Box.createVerticalStrut(12));
+        tablePanel.add(buttonPanel);
+
+        panel.add(tablePanel);
+
     }
+
 }

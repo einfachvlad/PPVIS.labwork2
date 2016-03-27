@@ -151,47 +151,7 @@ public class DOM {
         }
         JOptionPane.showMessageDialog
                 (null, "Файл сохранен", "Успех", JOptionPane.INFORMATION_MESSAGE);
-       /* try {
-            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            newDoc = documentBuilder.newDocument();
-        } catch (ParserConfigurationException e) {
-            System.err.println(e);
-            System.exit(1);
-        }
-        Element root = newDoc.createElement("students");
 
-        for (Student student : students.students) {
-            Element studentNode = newDoc.createElement("student");
-
-            Element name = newDoc.createElement("name");
-            name.setTextContent(student.getName());
-
-            Element birthDate = newDoc.createElement("birthDate");
-            birthDate.setTextContent(student.getBirthDate());
-
-            Element enteringYear = newDoc.createElement("enteringYear");
-            enteringYear.setTextContent(Integer.toString(student.getEnteringYear()));
-
-            Element graduateYear = newDoc.createElement("graduateYear");
-            graduateYear.setTextContent(Integer.toString(student.getGraduateYear()));
-
-            studentNode.appendChild(name);
-            studentNode.appendChild(birthDate);
-            studentNode.appendChild(enteringYear);
-            studentNode.appendChild(graduateYear);
-
-            root.appendChild(studentNode);
-
-        }
-        try {
-            Transformer tr = TransformerFactory.newInstance().newTransformer();
-            DOMSource source = new DOMSource(newDoc);
-            FileOutputStream fos = new FileOutputStream(file);
-            StreamResult result = new StreamResult(fos);
-            tr.transform(source, result);
-        } catch (TransformerException | IOException e) {
-            e.printStackTrace(System.out);
-        }*/
 
     }
 }
