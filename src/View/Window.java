@@ -3,6 +3,7 @@ package View;
 import javax.swing.*;
 
 import Controller.*;
+import Controller.Delete.OpenDeleteAction;
 import Controller.Input.OpenInputAction;
 import Controller.Search.OpenSearchAction;
 import Controller.TableButtons.*;
@@ -57,7 +58,7 @@ public class Window {
         JMenuItem search = new JMenuItem("Поиск в массиве", new ImageIcon(".//.//res//search.png"));
         search.addActionListener(new OpenSearchAction(students));
         JMenuItem delete = new JMenuItem("Удаление в массиве", new ImageIcon(".//.//res//delete.png"));
-        delete.addActionListener(new OpenSearchAction(students));
+        delete.addActionListener(new OpenDeleteAction(students,table));
 
         array.add(input);
         array.add(search);
@@ -84,7 +85,7 @@ public class Window {
         search.addActionListener(new OpenSearchAction(students));
         JButton delete = new JButton(new ImageIcon(".//.//res//delete.png"));
         delete.setToolTipText("Удаление в массиве");
-        delete.addActionListener(new OpenSearchAction(students));
+        delete.addActionListener(new OpenDeleteAction(students,table));
 
         toolBar.add(open);
         toolBar.add(save);

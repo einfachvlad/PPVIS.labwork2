@@ -23,9 +23,11 @@ public class FirstPage implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent event) {
-        students.selectedPage=1;
-
-        List<Student> studentsList=students.students.subList(0,students.visibleCount);
+        students.selectedPage = 1;
+        List<Student> studentsList;
+        if (students.numberOfPages == 1)
+            studentsList = students.students.subList(0, students.students.size());
+        else studentsList = students.students.subList(0, students.visibleCount);
         Students newStudents = new Students(studentsList);
 
         studentsModel = new StudentsModel(newStudents);
