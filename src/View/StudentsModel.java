@@ -45,13 +45,13 @@ public class StudentsModel {
         List<String> header = new ArrayList<>();
         List<Integer> numbers = new ArrayList<>();
         if(oldStudents.selectedPage==0)
-            for(int number=oldStudents.selectedPage*students.visibleCount;number<(oldStudents.selectedPage+1)*students.visibleCount;number++)
+            for(int number=oldStudents.selectedPage*oldStudents.visibleCount;number<(oldStudents.selectedPage+1)*oldStudents.visibleCount;number++)
                 numbers.add(number);
         else if(oldStudents.selectedPage==oldStudents.numberOfPages)
-            for(int number=(oldStudents.selectedPage-1)*students.visibleCount;number<oldStudents.students.size();number++)
+            for(int number=(oldStudents.selectedPage-1)*oldStudents.visibleCount;number<oldStudents.students.size();number++)
                 numbers.add(number);
         else
-            for(int number=(oldStudents.selectedPage-1)*students.visibleCount;number<oldStudents.selectedPage*students.visibleCount;number++)
+            for(int number=(oldStudents.selectedPage-1)*oldStudents.visibleCount;number<oldStudents.selectedPage*oldStudents.visibleCount;number++)
                 numbers.add(number);
         Iterator iterator=numbers.iterator();
         // Vector<Object> data = new Vector<>();

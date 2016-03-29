@@ -27,7 +27,7 @@ public class NextPage implements ActionListener {
             students.selectedPage++;
             List<Student> studentsList;
             if (students.selectedPage != students.numberOfPages)
-                studentsList = students.students.subList(students.selectedPage * students.visibleCount, (students.selectedPage + 1) * students.visibleCount);
+                studentsList = students.students.subList((students.selectedPage-1) * students.visibleCount, students.selectedPage * students.visibleCount);
             else
                 studentsList = students.students.subList((students.selectedPage - 1) * students.visibleCount, students.students.size());
 

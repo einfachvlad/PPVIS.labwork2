@@ -57,7 +57,7 @@ public class InputAction implements ActionListener {
             List<Student> studentsList = students.students.subList((students.selectedPage - 1) * students.visibleCount, students.students.size());
             Students newStudents = new Students(studentsList);
             if (studentsList.size() < students.visibleCount + 1) {
-                model = new StudentsModel(newStudents);
+                model = new StudentsModel(newStudents,students);
                 mainTable.setModel(model.getModel());
             }
             else students.numberOfPages++;
