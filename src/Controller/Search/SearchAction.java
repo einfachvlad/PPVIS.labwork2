@@ -2,7 +2,7 @@ package Controller.Search;
 
 import Model.Student;
 import Model.Students;
-import View.Search;
+import View.SearchDelete;
 import View.StudentsModel;
 
 import javax.swing.*;
@@ -16,15 +16,17 @@ import java.util.regex.Pattern;
 
 public class SearchAction implements ActionListener {
 
-    Search search;
+    SearchDelete search;
     Students students;
+    Students newStudents;
     StudentsModel model;
     JTable table = new JTable();
 
-    public SearchAction(Search search, Students students, JTable table) {
+    public SearchAction(SearchDelete search, Students students, JTable table,Students newStudents) {
         this.search = search;
         this.students = students;
         this.table = table;
+        this.newStudents=newStudents;
     }
 
     public void actionPerformed(ActionEvent event) {
@@ -87,6 +89,7 @@ public class SearchAction implements ActionListener {
                     break;
                 }
             }
+
             String day;
             if ((int) search.day.getSelectedItem() < 10)
                 day = "0" + search.day.getSelectedItem().toString();
@@ -114,7 +117,7 @@ public class SearchAction implements ActionListener {
             JOptionPane.showMessageDialog
                     (null, "Ничего не найдено", "Ошибка", JOptionPane.ERROR_MESSAGE);
         } else {
-            Students newStudents = new Students(filterStudents);
+            newStudents.students =filterStudents;
             model = new StudentsModel(newStudents);
             table.setModel(model.getModel());
         }

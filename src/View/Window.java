@@ -3,10 +3,7 @@ package View;
 import javax.swing.*;
 
 import Controller.*;
-import Controller.Delete.OpenDeleteAction;
 import Controller.Input.OpenInputAction;
-import Controller.Search.OpenSearchAction;
-import Controller.TableButtons.*;
 import Model.Students;
 
 import java.awt.*;
@@ -18,6 +15,7 @@ public class Window {
     JToolBar toolBar;
     Students students;
     JTable table = new JTable();
+    Table funTable=new Table();
 
     public Window(Students students) {
         this.students = students;
@@ -27,7 +25,7 @@ public class Window {
         panel = new JPanel();
         menuBar();
         toolBar();
-        table();
+        funTable.table(table,students,panel);
         mainwindow.setContentPane(panel);
         mainwindow.pack();
         mainwindow.setVisible(true);
@@ -56,9 +54,9 @@ public class Window {
         JMenuItem input = new JMenuItem("Ввод в массив", new ImageIcon(".//.//res//input.png"));
         input.addActionListener(new OpenInputAction(students, table));
         JMenuItem search = new JMenuItem("Поиск в массиве", new ImageIcon(".//.//res//search.png"));
-        search.addActionListener(new OpenSearchAction(students));
+        search.addActionListener(new OpenSearchDeleteAction(students,table,"Поиск"));
         JMenuItem delete = new JMenuItem("Удаление в массиве", new ImageIcon(".//.//res//delete.png"));
-        delete.addActionListener(new OpenDeleteAction(students,table));
+        delete.addActionListener(new OpenSearchDeleteAction(students,table,"Удаление"));
 
         array.add(input);
         array.add(search);
@@ -82,10 +80,10 @@ public class Window {
         input.addActionListener(new OpenInputAction(students, table));
         JButton search = new JButton(new ImageIcon(".//.//res//search.png"));
         search.setToolTipText("Поиск в массиве");
-        search.addActionListener(new OpenSearchAction(students));
+        search.addActionListener(new OpenSearchDeleteAction(students,table,"Поиск"));
         JButton delete = new JButton(new ImageIcon(".//.//res//delete.png"));
         delete.setToolTipText("Удаление в массиве");
-        delete.addActionListener(new OpenDeleteAction(students,table));
+        delete.addActionListener(new OpenSearchDeleteAction(students,table,"Удаление"));
 
         toolBar.add(open);
         toolBar.add(save);
@@ -94,55 +92,6 @@ public class Window {
         toolBar.add(delete);
     }
 
-    void table() {
-        Box tablePanel = Box.createVerticalBox();
-        JScrollPane scrollPane = new JScrollPane(table);
 
-        Box visibleCount = Box.createHorizontalBox();
-
-        JButton no15 = new JButton("15");
-        no15.addActionListener(new VisibleCount(students, 15,table));
-
-        JButton no20 = new JButton("20");
-        no20.addActionListener(new VisibleCount(students, 20,table));
-
-        JButton no30 = new JButton("30");
-        no30.addActionListener(new VisibleCount(students, 30,table));
-
-        visibleCount.add(no15);
-        visibleCount.add(Box.createHorizontalStrut(3));
-        visibleCount.add(no20);
-        visibleCount.add(Box.createHorizontalStrut(3));
-        visibleCount.add(no30);
-
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(1, 4, 3, 1));
-
-        JButton first = new JButton("<<");
-        first.addActionListener(new FirstPage(students, table));
-
-        JButton previous = new JButton("Previous");
-        previous.addActionListener(new PreviousPage(students, table));
-
-        JButton next = new JButton("Next");
-        next.addActionListener(new NextPage(students, table));
-
-        JButton last = new JButton(">>");
-        last.addActionListener(new LastPage(students, table));
-
-        buttonPanel.add(first);
-        buttonPanel.add(previous);
-        buttonPanel.add(next);
-        buttonPanel.add(last);
-
-        tablePanel.add(scrollPane);
-        tablePanel.add(Box.createVerticalStrut(12));
-        tablePanel.add(visibleCount);
-        tablePanel.add(Box.createVerticalStrut(12));
-        tablePanel.add(buttonPanel);
-
-        panel.add(tablePanel);
-
-    }
 
 }

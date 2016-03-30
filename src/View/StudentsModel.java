@@ -15,7 +15,6 @@ public class StudentsModel {
     public StudentsModel(Students students) {
         model = new DefaultTableModel(students.students.size(), 5);
         List<String> header = new ArrayList<>();
-        // Vector<Object> data = new Vector<>();
 
         header.add("№");
         header.add("ФИО");
@@ -31,11 +30,6 @@ public class StudentsModel {
             model.setValueAt(student.getBirthDate(student.FULL), students.students.indexOf(student), 2);
             model.setValueAt(student.getEnteringYear(), students.students.indexOf(student), 3);
             model.setValueAt(student.getGraduateYear(), students.students.indexOf(student), 4);
-            /*data.add(students.students.indexOf(student) + 1);
-            data.add(student.getName());
-            data.add(student.getBirthDate());
-            data.add(student.getEnteringYear());
-            data.add(student.getGraduateYear());*/
 
         }
         model.setColumnIdentifiers(header.toArray());
@@ -54,7 +48,6 @@ public class StudentsModel {
             for(int number=(oldStudents.selectedPage-1)*oldStudents.visibleCount;number<oldStudents.selectedPage*oldStudents.visibleCount;number++)
                 numbers.add(number);
         Iterator iterator=numbers.iterator();
-        // Vector<Object> data = new Vector<>();
 
         header.add("№");
         header.add("ФИО");
@@ -70,11 +63,6 @@ public class StudentsModel {
             model.setValueAt(student.getBirthDate(student.FULL), students.students.indexOf(student), 2);
             model.setValueAt(student.getEnteringYear(), students.students.indexOf(student), 3);
             model.setValueAt(student.getGraduateYear(), students.students.indexOf(student), 4);
-            /*data.add(students.students.indexOf(student) + 1);
-            data.add(student.getName());
-            data.add(student.getBirthDate());
-            data.add(student.getEnteringYear());
-            data.add(student.getGraduateYear());*/
 
         }
         model.setColumnIdentifiers(header.toArray());

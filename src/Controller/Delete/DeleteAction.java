@@ -2,7 +2,7 @@ package Controller.Delete;
 
 import Model.Student;
 import Model.Students;
-import View.Delete;
+import View.SearchDelete;
 import View.StudentsModel;
 
 import javax.swing.*;
@@ -16,15 +16,17 @@ import java.util.regex.Pattern;
 
 public class DeleteAction implements ActionListener {
 
-    Delete delete;
+    SearchDelete delete;
     Students students;
+    Students newStudents;
     StudentsModel model;
     JTable table = new JTable();
     JTable mainTable = new JTable();
 
-    public DeleteAction(Delete delete, Students students, JTable table, JTable mainTable) {
+    public DeleteAction(SearchDelete delete, Students students, JTable table, JTable mainTable,Students newStudents) {
         this.delete = delete;
         this.students = students;
+        this.newStudents=newStudents;
         this.table = table;
         this.mainTable = mainTable;
     }
@@ -133,11 +135,11 @@ public class DeleteAction implements ActionListener {
                     students.numberOfPages--;
                 }
 
-                Students checkOfStudents = new Students(studentsList);
+                newStudents.students = studentsList;
                 if (students.numberOfPages == 1)
-                    model = new StudentsModel(checkOfStudents);
+                    model = new StudentsModel(newStudents);
                 else
-                    model = new StudentsModel(checkOfStudents, students);
+                    model = new StudentsModel(newStudents, students);
                 mainTable.setModel(model.getModel());
 
                 JOptionPane.showMessageDialog

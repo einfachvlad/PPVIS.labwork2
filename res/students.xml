@@ -1,123 +1,123 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <students>
-	<student>
-		<name>Иванов И.И.</name>
-		<birthDate>20.12.1996</birthDate>
-		<enteringYear>2014</enteringYear>
-		<graduateYear>2018</graduateYear>
-	</student>
-	<student>
-		<name>Тарасенко В.А.</name>
-		<birthDate>30.10.1996</birthDate>
-		<enteringYear>2014</enteringYear>
-		<graduateYear>2018</graduateYear>
-	</student>
-	<student>
-		<name>Савельев В.П.</name>
-		<birthDate>24.06.1990</birthDate>
-		<enteringYear>2008</enteringYear>
-		<graduateYear>2013</graduateYear>
-	</student>
-	<student>
-		<name>Онофеев И.Л.</name>
-		<birthDate>06.05.1993</birthDate>
-		<enteringYear>2011</enteringYear>
-		<graduateYear>2016</graduateYear>
-	</student>
-	<student>
-		<name>Лапко А.П.</name>
-		<birthDate>06.05.1992</birthDate>
-		<enteringYear>2010</enteringYear>
-		<graduateYear>2015</graduateYear>
-	</student>
-	<student>
-		<name>Камышев А.Я.</name>
-		<birthDate>04.03.1986</birthDate>
-		<enteringYear>2004</enteringYear>
-		<graduateYear>2009</graduateYear>
-	</student>
-	<student>
-		<name>Сафронова Ю.А.</name>
-		<birthDate>30.05.1997</birthDate>
-		<enteringYear>2015</enteringYear>
-		<graduateYear>2019</graduateYear>
-	</student>
-	<student>
-		<name>Сафронов Л.А.</name>
-		<birthDate>30.08.1997</birthDate>
-		<enteringYear>2015</enteringYear>
-		<graduateYear>2019</graduateYear>
-	</student>
-	<student>
-		<name>Ладутько П.Е.</name>
-		<birthDate>06.05.1989</birthDate>
-		<enteringYear>2007</enteringYear>
-		<graduateYear>2012</graduateYear>
-	</student>
-	<student>
-		<name>Конопелько М.Р.</name>
-		<birthDate>30.04.1972</birthDate>
-		<enteringYear>1990</enteringYear>
-		<graduateYear>1995</graduateYear>
-	</student>
-	<student>
-		<name>Молчан А.И.</name>
-		<birthDate>19.09.1996</birthDate>
-		<enteringYear>2014</enteringYear>
-		<graduateYear>2018</graduateYear>
-	</student>
-	<student>
-		<name>Уваров А.К.</name>
-		<birthDate>31.12.1997</birthDate>
-		<enteringYear>2015</enteringYear>
-		<graduateYear>2019</graduateYear>
-	</student>
-	<student>
-		<name>Кипелов А.Н.</name>
-		<birthDate>23.06.1989</birthDate>
-		<enteringYear>2007</enteringYear>
-		<graduateYear>2012</graduateYear>
-	</student>
-	<student>
-		<name>Остроух Ю.А.</name>
-		<birthDate>24.07.1996</birthDate>
-		<enteringYear>2014</enteringYear>
-		<graduateYear>2018</graduateYear>
-	</student>
-	<student>
-		<name>Юров В.В.</name>
-		<birthDate>15.05.1992</birthDate>
-		<enteringYear>2010</enteringYear>
-		<graduateYear>2015</graduateYear>
-	</student>
-	<student>
-		<name>Ромашко Е.К.</name>
-		<birthDate>23.03.1993</birthDate>
-		<enteringYear>2011</enteringYear>
-		<graduateYear>2016</graduateYear>
-	</student>
-	<student>
-		<name>Кулач П.Р.</name>
-		<birthDate>03.02.1980</birthDate>
-		<enteringYear>1998</enteringYear>
-		<graduateYear>2003</graduateYear>
-	</student>
-	<student>
-		<name>Сопелько Р.П.</name>
-		<birthDate>08.06.1997</birthDate>
-		<enteringYear>2015</enteringYear>
-		<graduateYear>2019</graduateYear>
-	</student>
-	<student>
-		<name>Жукевич В.В.</name>
-		<birthDate>02.02.1990</birthDate>
-		<enteringYear>2008</enteringYear>
-		<graduateYear>2013</graduateYear>
-	</student>
-	<student>
-		<name>Сопрано А.А.</name>
-		<birthDate>07.07.1997</birthDate>
-		<enteringYear>2015</enteringYear>
-		<graduateYear>2019</graduateYear>
-	</student>
+    <student>
+        <name>Иванов И.И.</name>
+        <birthDate>20.12.1996</birthDate>
+        <enteringYear>2014</enteringYear>
+        <graduateYear>2018</graduateYear>
+    </student>
+    <student>
+        <name>Тарасенко В.А.</name>
+        <birthDate>30.10.1996</birthDate>
+        <enteringYear>2014</enteringYear>
+        <graduateYear>2018</graduateYear>
+    </student>
+    <student>
+        <name>Савельев В.П.</name>
+        <birthDate>24.06.1990</birthDate>
+        <enteringYear>2008</enteringYear>
+        <graduateYear>2013</graduateYear>
+    </student>
+    <student>
+        <name>Онофеев И.Л.</name>
+        <birthDate>06.05.1993</birthDate>
+        <enteringYear>2011</enteringYear>
+        <graduateYear>2016</graduateYear>
+    </student>
+    <student>
+        <name>Лапко А.П.</name>
+        <birthDate>06.05.1992</birthDate>
+        <enteringYear>2010</enteringYear>
+        <graduateYear>2015</graduateYear>
+    </student>
+    <student>
+        <name>Камышев А.Я.</name>
+        <birthDate>04.03.1986</birthDate>
+        <enteringYear>2004</enteringYear>
+        <graduateYear>2009</graduateYear>
+    </student>
+    <student>
+        <name>Сафронова Ю.А.</name>
+        <birthDate>30.05.1997</birthDate>
+        <enteringYear>2015</enteringYear>
+        <graduateYear>2019</graduateYear>
+    </student>
+    <student>
+        <name>Сафронов Л.А.</name>
+        <birthDate>30.08.1997</birthDate>
+        <enteringYear>2015</enteringYear>
+        <graduateYear>2019</graduateYear>
+    </student>
+    <student>
+        <name>Ладутько П.Е.</name>
+        <birthDate>06.05.1989</birthDate>
+        <enteringYear>2007</enteringYear>
+        <graduateYear>2012</graduateYear>
+    </student>
+    <student>
+        <name>Конопелько М.Р.</name>
+        <birthDate>30.04.1972</birthDate>
+        <enteringYear>1990</enteringYear>
+        <graduateYear>1995</graduateYear>
+    </student>
+    <student>
+        <name>Молчан А.И.</name>
+        <birthDate>19.09.1996</birthDate>
+        <enteringYear>2014</enteringYear>
+        <graduateYear>2018</graduateYear>
+    </student>
+    <student>
+        <name>Уваров А.К.</name>
+        <birthDate>31.12.1997</birthDate>
+        <enteringYear>2015</enteringYear>
+        <graduateYear>2019</graduateYear>
+    </student>
+    <student>
+        <name>Кипелов А.Н.</name>
+        <birthDate>23.06.1989</birthDate>
+        <enteringYear>2007</enteringYear>
+        <graduateYear>2012</graduateYear>
+    </student>
+    <student>
+        <name>Остроух Ю.А.</name>
+        <birthDate>24.07.1996</birthDate>
+        <enteringYear>2014</enteringYear>
+        <graduateYear>2018</graduateYear>
+    </student>
+    <student>
+        <name>Юров В.В.</name>
+        <birthDate>15.05.1992</birthDate>
+        <enteringYear>2010</enteringYear>
+        <graduateYear>2015</graduateYear>
+    </student>
+    <student>
+        <name>Ромашко Е.К.</name>
+        <birthDate>23.03.1993</birthDate>
+        <enteringYear>2011</enteringYear>
+        <graduateYear>2016</graduateYear>
+    </student>
+    <student>
+        <name>Кулач П.Р.</name>
+        <birthDate>03.02.1980</birthDate>
+        <enteringYear>1998</enteringYear>
+        <graduateYear>2003</graduateYear>
+    </student>
+    <student>
+        <name>Сопелько Р.П.</name>
+        <birthDate>08.06.1997</birthDate>
+        <enteringYear>2015</enteringYear>
+        <graduateYear>2019</graduateYear>
+    </student>
+    <student>
+        <name>Жукевич В.В.</name>
+        <birthDate>02.02.1990</birthDate>
+        <enteringYear>2008</enteringYear>
+        <graduateYear>2013</graduateYear>
+    </student>
+    <student>
+        <name>Сопрано А.А.</name>
+        <birthDate>07.07.1997</birthDate>
+        <enteringYear>2015</enteringYear>
+        <graduateYear>2019</graduateYear>
+    </student>
 </students>
